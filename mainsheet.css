@@ -22,56 +22,7 @@ a{
     min-width: 500px;
 }
 
-.navcontainer{
-    background-color: transparent;
-    min-width: 800px;
-}
-
-ul.navbuttons{
-    list-style: none;
-}
-
-ul.navbuttons li{
-    float: left;
-}
-
-a.navbutton{
-    width: auto;
-    transition-timing-function: ease;
-    transition-duration: .2s;
-    height: 25px;
-    background-color: transparent;
-    padding: 15px 35px 20px 35px;
-    font-size: 16px;
-}
-
-a.navbutton:hover{
-    background-color: rgba(255, 255, 255, .6);
-}
-
-a.navbutton:active{
-    background-color: rgba(0, 0, 0, .3);
-    color: white;
-}
-
 .mainwrapr{
-    height: auto;
-}
-
-.bottomwrapr{
-    background-color: dimgray;
-    margin-top: 100px;
-    height: 270px;
-}
-
-.footcontainer{
-    height: 200px;
-    padding: 35px;
-}
-
-.contactinfo{
-    margin: 0px auto 0px auto;
-    width: 360px;
     height: auto;
 }
 
@@ -85,7 +36,7 @@ a.navbutton:active{
 }
 
 .mainbackbnr#backimg{
-    background-image: url(fish.png);
+    background-image: url("./s/fish.png");
     background-size: cover;
 }
 
@@ -129,21 +80,6 @@ a.navbutton:active{
     padding: 35px;
 }
 
-img.avatar#big{
-    display: block;
-    width: 128px;
-    height: 128px;
-    border-style: solid;
-    border-color: white;
-    border-width: 5px;
-    border-radius: 64px;
-    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, .2);
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 h2{
     height: auto;
     line-height: 35px;
@@ -156,52 +92,4 @@ h3{
     font-weight: normal;
     font-size: 16px;
     line-height: 25px;
-}
-
-ul.toolli{
-    margin-top: 20px;
-    list-style: none;
-}
-
-a.toollink{
-    transition-timing-function: linear;
-    transition-duration: .1s;
-    position: relative;
-    height: 128px;
-    padding: 20px;
-}
-
-a.toollink:hover{
-    box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, .2);
-}
-
-a.toollink:active{
-    background-color: dimgray;
-}
-
-a.toollink:active .tooldes h2, a.toollink:active .tooldes h3{
-    color: white;
-}
-
-.tooldes{
-    margin-left: 178px;
-    margin-top: 25px;
-}
-
-.tooldes h2{
-    font-weight: normal;
-    width: auto;
-    font-size: 22px;
-}
-
-.tooldes h3{
-    line-height: 25px;
-}
-
-img.toolview{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 128px;
-    height: 128px;
 }
