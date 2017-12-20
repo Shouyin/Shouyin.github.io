@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>movements - developing</title>
+    </head>
+    <body style="background-image:url(/s/p90.jpg);background-repeat:no-repeat">
+        <audio src="/s/deshots.mp3" id="deshot" preload="auto"></audio>
+        <audio src="/s/pnt.mp3" id="pntshot" preload="auto" loop="loop"></audio>
+        <p id="stats">
+        
+        </p>
+        <h1 id="count">
+        efsef
+        </h1>
+        <button onclick="mode = 'de';alert(mode);dshot();startListening()">ondes</button>
+        <button onclick="mode = 'p90';alert(mode);pshot();startListening()">onpnt</button>
+        <button onclick="alert(pntAudio.duration);pshot()">playit</button>
+        <script>
+            
+            var deAudio = document.getElementById("deshot");
+            var pntAudio = document.getElementById("pntshot");
+            var stats = document.getElementById("stats");
+            var c = document.getElementById("count");
+            
+            var mode = "de";
+            var chosen = false;
+            var timeIntv = 100;
+            var shot = dshot;
+            
+            function startListening(){
+                if(!chosen){
+                    chosen = true;
+                    if(mode == "de"){
+                        timeIntv = 300;
+                        shot = dshot;
+                    }else if(mode == "p90"){
+                        timeIntv = 200;
+                        shot = pshot;
+                    }
+                    window.addEventListener("deviceorientation", doHandler, true);
+                }
+            }
+                
+            var startShot = false;
+            
+            function dshot(){
+                deAudio.load();
+                //deAudio.pause();
+                //deAudio.currentTime = 0;
+                deAudio.play();
+            }
+            
+            function pshot(){
+                pntAudio.load();
+                pntAudio.loop = true;
+                pntAudio.play();
+            }
+            
+            var timeBase = new Date();
+            
+            var prevAbs = 0;
+            var prevAl = 0;
+            var prevBe = 0;
+            var prevGma = 0;
+            var prevTime = timeBase.getTime();
+            var abs = 0;
+            var al = 0;
+            var be = 0;
+            var gma = 0;
+            var now = 0;
+            
+            var count = 0;
+            
+            function doHandler(event){
+                if(window.DeviceMotionEvent){
+                    abs = event.absolute;
+                    al = event.alpha;
+                    be = event.beta;
+                    gma = event.gamma;
+
+                    stats.innerHTML = "abs: " + abs + "<br />" + "al: " + al + "<br />" + "be: " + be + "<br />" + "gma: " + gma;
+                    //c.innerHTML = deAudio.currentTime;
+                    timeBase = new Date();
+                    now = timeBase.getTime();
+                    if(now - prevTime >= timeIntv){
+                        doMain(al - prevAl, be - prevBe, gma-prevGma);
+                        prevTime = now;
+                        prevAbs = abs;
+                        prevAl = al;
+                        prevBe = be;
+                        prevGma = gma;
+                    }
+                }
+            }
+            
+            function doMain(dAl, dBe, dGma){
+                if(mode == "de"){
+                    if(dBe > 8){
+                        count ++;
+                        dshot();
+                        c.innerHTML = count.toString();
+                    }
+                }else if(mode == "p90"){
+                    if(Math.abs)
+                    if(Math.abs(dBe) > 1 || Math.abs(dGma) > 1){
+                        count ++;
+                        c.innerHTML = count.toString();
+                        if(!startShot){
+                            startShot = true;
+                            pshot();
+                        }
+                        
+                    }else{
+                        startShot = false;
+                        pntAudio.pause();
+                    }
+                }
+                
+            }
+        </script>
+    </body>
+</html>
