@@ -127,6 +127,7 @@ dl.classlist{
     float: left;
     overflow-y: hidden;
     margin: 5% 0px 0px 5%;
+    border-radius: 0px;
     width: 85%;
     height: 80%;
 }
