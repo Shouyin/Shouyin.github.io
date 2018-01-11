@@ -784,6 +784,4 @@ var tMain = function () {
 
     initialize();
     checkOnLoad();
-
-    applyChanges(tmpCourses);
 }();
