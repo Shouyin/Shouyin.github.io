@@ -672,7 +672,5 @@ var checkOnLoad = function(){
 initialize();
 checkOnLoad();
 
-applyChanges(tmpCourses);
-
 })();
 
