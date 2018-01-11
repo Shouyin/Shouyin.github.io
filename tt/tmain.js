@@ -68,16 +68,6 @@ var tMain = function () {
     var kindNameBoxMaxWidth = 80;
     var kindNameBoxMinWidth = 15;
 
-    var tmpCourses = {
-        "CLAS 20008": {
-            "p": [[4], [4, 0, 7], [4]],
-            "u": [[7], [7]]
-        },
-        "TEST 20007": {
-            "d": [[6], [6, 1, 9], [5]]
-        }
-    };
-
     var stdbyListIndex = 0;
 
     var defaultKindName = "undef";
