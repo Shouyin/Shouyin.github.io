@@ -471,7 +471,7 @@ var openControlWindow = function(tab){
         icexportimage.style.display = "block";
         /*eiqrcodeimg.src = QRCode.generatePNG(JSON.stringify(exportTimetableToJsonObj()));*/
        eiqrcodesvg.innerHTML = "";
-        let stringForQrcode = location.host + location.pathname + "?att=" + encodeURI(JSON.stringify(tObjects.exportAllToJsonObj())) + ";";
+        let stringForQrcode = location.host + location.pathname + "?att=" + encodeURI(JSON.stringify(tObjects.exportAllToJsonObj()) + "&");
         
         eiqrcodesvg.appendChild(QRCode.generateSVG(stringForQrcode));
 
@@ -657,7 +657,7 @@ var checkOnLoad = function(){
     paramString = decodeURI(paramString);
     let startIndex = paramString.indexOf("att=");
     if(startIndex >= 0){
-        let endIndex = paramString.indexOf(";");
+        let endIndex = paramString.indexOf("&");
         if (endIndex >= 0){
             try{
                 let exportedJsonObj = JSON.parse(paramString.slice(startIndex + 4, endIndex));

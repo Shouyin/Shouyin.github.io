@@ -544,7 +544,7 @@ var tMain = function () {
             icexportimage.style.display = "block";
             /*eiqrcodeimg.src = QRCode.generatePNG(JSON.stringify(exportTimetableToJsonObj()));*/
             eiqrcodesvg.innerHTML = "";
-            var stringForQrcode = location.host + location.pathname + "?att=" + encodeURI(JSON.stringify(tObjects.exportAllToJsonObj())) + ";";
+            var stringForQrcode = location.host + location.pathname + "?att=" + encodeURI(JSON.stringify(tObjects.exportAllToJsonObj()) + "&");
 
             eiqrcodesvg.appendChild(QRCode.generateSVG(stringForQrcode));
         } else if (tab == "ec") {
@@ -770,7 +770,7 @@ var tMain = function () {
         paramString = decodeURI(paramString);
         var startIndex = paramString.indexOf("att=");
         if (startIndex >= 0) {
-            var endIndex = paramString.indexOf(";");
+            var endIndex = paramString.indexOf("&");
             if (endIndex >= 0) {
                 try {
                     var exportedJsonObj = JSON.parse(paramString.slice(startIndex + 4, endIndex));
