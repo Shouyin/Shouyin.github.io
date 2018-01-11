@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="a timetable" />
+        <title>Timetable Planner</title>
+        <link rel="stylesheet" type="text/css" href="timetable.css" />
+    </head>
+    <body>
+        <div class="topwrpr">
+            <h1>timetable</h1>
+        </div>
+        <div class="mainwrpr">
+            <div class="classtab" id="stdby">
+                <div class="tabheadercontainer">
+                    <h3 class="smlheader">PENDING</h3>
+                </div>
+                <dl id="stdbylist">
+                </dl>
+            </div>
+            <div class="timetablecontainer">
+                    <ul class="timelist">
+                        <li>7 - 8</li>
+                        <li>8 - 9</li>
+                        <li>9 - 10</li>
+                        <li>10 - 11</li>
+                        <li>11 - 12</li>
+                        <li>12 - 13</li>
+                        <li>13 - 14</li>
+                        <li>14 - 15</li>
+                        <li>15 - 16</li>
+                        <li>16 - 17</li>
+                        <li>17 - 18</li>
+                        <li>18 - 19</li>
+                        <li>19 - 20</li>
+                        <li>20 - 21</li>
+                    </ul>
+                    <ul class="daylist">
+                        <li class="daytag" id="odd">
+                            <div class="tabheadercontainer">
+                                <h3 class="smlheader">MON</h3>
+                            </div>
+                            <dl class="classlist" id="mon">
+                            </dl>
+                        </li>
+                        <li class="daytag" id="even">
+                            <div class="tabheadercontainer">
+                                <h3 class="smlheader">TUE</h3>
+                            </div>
+                            <dl class="classlist" id="tue">
+                                
+                            </dl>
+                        </li>
+                        <li class="daytag" id="odd">
+                            <div class="tabheadercontainer">
+                                <h3 class="smlheader">WED</h3>
+                            </div>
+                            <dl class="classlist" id="wed">
+                                
+                            </dl>
+                        </li>
+                        <li class="daytag" id="even">
+                            <div class="tabheadercontainer">
+                                <h3 class="smlheader">THU</h3>
+                            </div>
+                            <dl class="classlist" id="thu">
+                                
+                            </dl>
+                        </li>
+                        <li class="daytag" id="odd">
+                            <div class="tabheadercontainer">
+                                <h3 class="smlheader">FRI</h3>
+                            </div>
+                            <dl class="classlist" id="fri">
+                                
+                            </dl>
+                        </li>
+                    </ul>
+            </div>
+            <div class="rightcontainer">
+                <ul class="coursecontainer" id="cc">
+                    <li class="coursebox" id="addcbox">
+                        <div class="plhimg">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136.63 136.63"><defs><style>.cls-1{opacity:0.5;}</style></defs><title>r1</title><g id="t_2" data-name="t 2"><g id="t_1-2" data-name="t 1"><rect class="cls-1" x="54.31" y="124.63" width="28" height="12"/><rect class="cls-1" x="54.31" width="28" height="12"/><path class="cls-1" d="M94.31,12h.83a29.51,29.51,0,0,1,29.48,29.48v.83h12v-.83A41.52,41.52,0,0,0,95.15,0h-.83Z"/><rect class="cls-1" y="54.31" width="12" height="28"/><path class="cls-1" d="M42.31,124.63h-.83A29.51,29.51,0,0,1,12,95.15v-.83H0v.83a41.52,41.52,0,0,0,41.48,41.48h.83Z"/><path class="cls-1" d="M124.63,94.31v.83a29.51,29.51,0,0,1-29.48,29.48h-.83v12h.83a41.52,41.52,0,0,0,41.48-41.48v-.83Z"/><path class="cls-1" d="M12,42.31v-.83A29.51,29.51,0,0,1,41.48,12h.83V0h-.83A41.52,41.52,0,0,0,0,41.48v.83Z"/><rect class="cls-1" x="124.63" y="54.31" width="12" height="28"/><path class="cls-1" d="M89.71,62.31H74.31V46.92a6,6,0,0,0-12,0v15.4H46.92a6,6,0,0,0,0,12h15.4v15.4a6,6,0,0,0,12,0V74.31h15.4a6,6,0,0,0,0-12Z"/></g></g></svg>
+                        </div>
+                    </li>
+                </ul>
+                <div class="controlbox">
+                    <ul>
+                        <li class="controlbutton" id="cbejbutton">
+                            <h3>Export<br />(Json)</h3>
+                        </li>
+                        <li class="controlbutton" id="cbeibutton">
+                            <h3>Export<br />(QR Code)</h3>
+                        </li>
+                        <li class="controlbutton" id="cbijbutton">
+                            <h3>Import<br />(Json)</h3>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="chosenbox">
+                    <h3 class="smlheader">CHOSEN</h3>
+                    <div class="chosenclassbox" id="ccb">
+                        <h2></h2>
+                        <h3></h3>
+                        <h3></h3>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="controltoolcontainer" id="ctc">
+            <div class="cttopbar" id="cttb">
+                <h2>Umm</h2>
+                <img src="./res/cross.png" class="button bigclosebutton" id="controlcontainerbig" />
+            </div>
+            <div class="ctmaincontainer">
+                <div class="innercontrol" id="ac">
+                    <form>
+                        <input type="text" class="inputs" id="ctcn" placeholder="Course Name..."/>
+                        <br />
+                        <br />
+                        <h3>Add class</h3>
+                        <br />
+                        <div class="coursekindform">
+                            <input type="text" id="ckname" class="inputs" placeholder="Class Type Name..."/>
+                            <h3>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <input type="number" min="1" max="10" class="inputs numbers" id="knumber" style="display: none"/>
+                            <input type="number" min="1" max="10" step="0.25" class="inputs numbers" id="hnumber" />
+                            <h3>hrs</h3>
+                            <img class="button addclasskindbutton" id="addclasskind" src="./res/add.png"/>
+                        </div>
+                        
+                    </form>
+                    <ul class="ccclasskindlist" id="ccckindlist">
+                    </ul>
+                    <button class="submitbutton" id="addcrs">Done</button>
+                </div>
+                
+                <div class="innercontrol" id="ej" style="display:none">
+                    <h3>Here's the JSON string of your timetable.<br />Simpliy copy it to share your arranged timetable!</h3>
+                    <textarea id="ejtargetta"></textarea>
+                        
+                </div>
+                
+                <div class="innercontrol" id="ei" style="display: none">
+                    <h3>Simply use the QR code to share your arranged timetable!</h3>
+                    <div id="iceiqrcodesvgbox"></div>
+                </div>
+                
+                <div class="innercontrol" id="ij" style="display:none">
+                    <h3>Paste a timetable-formatted JSON string to import</h3>
+                    <textarea id="ijtargetta"></textarea>
+                    <form style="float:left;margin-top: 3%;">
+                        <input type="checkbox" id="clearcheckbox" checked />
+                        <h3>Clear current timetable</h3>
+                    </form>
+                    <button class="submitbutton" id="importj">Import</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="hiddenboxes" style="display:none">
+            <div class="classblock" id="classblocksample">
+                <div class="cbinnerblock">
+                    <input type="text" class="kindname" value="" placeholder="type"/>
+                    <h3>2</h3>
+                    <dt>CLAS 20007</dt>
+                    <dd>-</dd>
+                </div>
+                <img class="button smallbutton" src="./res/cross.png" />
+            </div>
+            <li class="coursebox" id="courseboxsample">
+                <div class="courseboxhead">
+                    <div class="repcolor"></div>
+                    <input class="inputs coursetitle" />
+                </div>
+                <h3 class="coursesubtitle">
+                    1 practical
+                </h3>
+                
+                <a class="cedit" href="javascript:;">EDIT</a>
+                <a><img class="button bigclosebutton courseclose" src="./res/cross.png" /></a>
+            </li>
+            <li id="kindpreviewboxsample"><h3>lecture</h3><img src="./res/cross.png" class="button smallclosebutton"/></li>
+            <div class="classboxhldr" id="cbh">
+            </div>
+        </div>
+        <!--qr.js from https://github.com/lifthrasiir/qr.js-->
+        <script type="text/javascript" src="qr.js"></script>
+        <script src="tobjects.js"></script>
+        <script src="tmain.js"></script>
+    </body>
+</html>

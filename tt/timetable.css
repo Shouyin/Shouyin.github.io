@@ -1,0 +1,532 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Source Sans Pro", "思源黑体 CN", sans-serif;
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+}
+
+ul, div, li{
+    border-radius: 12.5px;
+}
+
+h1{
+    line-height: 50px;
+    font-size: 50px;
+    color: rgb(102, 102, 102);
+}
+
+.topwrpr{
+    overflow: hidden;
+    margin: 3% auto 0;
+    max-width: 1800px;
+    width: 90%;
+    min-width: 1200px;
+    height: auto;
+}
+
+.mainwrpr{
+    overflow: hidden;
+    margin: 2% auto 1%;
+    width: 90%;
+    min-width: 1200px;
+    max-width: 1800px;
+    height: 800px;
+}
+
+.classtab{
+    border-radius: 11.5px;
+}
+
+.classtab#stdby{
+    transition-timing-function: linear;
+    transition-duration: 0.1s;
+    width: 11%;
+    float: left;
+    margin: 0px 0px 0px 0px;
+}
+
+.classtab#stdby:hover{
+    background-color: rgb(242, 242, 242);
+}
+
+.timetablecontainer{
+    background-color: rgb(242, 242, 242);
+    margin: 0px 0px 0px 1.5%;
+    width: 65%;
+    float: left;
+}
+
+.classtab#stdby, .timetablecontainer{
+    height: 800px;
+}
+
+.rightcontainer{
+    margin: 0px 0px 0px 1.5%;
+    width: 21%;
+    height: 800px;
+    background-color: transparent;
+    float: left;
+}
+
+.tabheadercontainer{
+    height: 50px;
+    overflow: hidden;
+}
+
+h1, h2, h3, dd, dt{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+h2{
+    line-height: 30px;
+    width: 80%;
+    height: 30px;
+    font-size: 25px;
+}
+
+h3{
+    width: auto;
+    height: auto;
+    line-height: 20px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+h3.smlheader{
+    margin: 15px 0px 15px 0px;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+dl#stdbylist{
+    height: 750px;
+    padding: 0px 0px 0px 5px;
+    z-index: 50;
+    overflow: scroll;
+}
+
+dl#stdbylist::-webkit-scrollbar{
+    width: 5px;
+}
+
+dl.classlist{
+    height: 700px;
+    z-index: 20;
+}
+
+.cbinnerblock{
+    position: relative;
+    float: left;
+    overflow-y: hidden;
+    margin: 5% 0px 0px 5%;
+    width: 85%;
+    height: 80%;
+}
+
+.cbinnerblock h3{
+    position: absolute;
+    font-weight: 700;
+    width: 20%;
+}
+
+input.kindname{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    width: 50%;
+    overflow-x: hidden;
+    color: inherit;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    font-size: 14px;
+    z-index: 60;
+}
+
+dt, dd{
+    font-size: 14px;
+    line-height: 15px;
+}
+
+dt{
+    margin-top: 20px;
+    float: left;
+    width: 0%;
+}
+
+dd{
+    margin-top: 20px;
+    float: left;
+    width: 90%;
+}
+
+.classblock{
+    overflow: hidden;
+    height: 100px;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    background-color: darkseagreen;
+    z-index: 20;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}
+
+.classblock form{
+    width: auto;
+    height: auto;
+}
+
+.timetable{
+    overflow: hidden;
+    position: relative;
+    width: 96%;
+    height: 750px;
+    padding: 25px auto 25px auto;
+    z-index: 20;
+}
+
+ul.timelist{
+    width: 9%;
+    height: 700px;
+    float: left;
+    margin: 75px 0px 0px 2.5%;
+}
+
+ul.timelist li{
+    height: 20px;
+    font-size: 14px;
+    padding: 15px 20px 15px 0px;
+    text-align: center;
+}
+
+li#addcbox{
+    text-align: center;
+    background-color: rgb(224, 224, 224);
+}
+
+li#addcbox:active{
+    background-color: rgb(110, 156, 206);
+}
+
+ul.daylist{
+    float: left;
+    margin: 25px 0px 0px 0px;
+    width: 86%;
+    height: 750px;
+}
+
+ul.daylist li.daytag{
+    float: left;
+    width: 20%;
+    height: 750px;
+}
+
+ul.daylist li.daytag#odd{
+    background-color: rgb(215, 215, 215);
+}
+
+ul.daylist li.daytag#even{
+    background-color: rgb(224, 224, 224);
+}
+
+li.controlbutton{
+    float: left;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    overflow: hidden;
+    width: 28%;
+    height: 64px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+li.controlbutton:active{
+    background-color: rgb(224, 224, 224);
+}
+
+li.controlbutton h3{
+    color: rgb(110, 156, 206);
+    text-align: center;
+    margin: 10% 0px 0px 0px;
+}
+
+.chosenbox{
+    padding: 15px 0px 0px 0px;
+}
+
+a.cedit{
+    display: none;
+    position: absolute;
+    text-decoration: none;
+    color: rgb(109, 109, 109);
+    left: 25px;
+    top: 5px;
+}
+
+.chosenclassbox{
+    background-color: rgb(242, 242, 242);
+    height: 100px;
+    padding: 25px 25px 0px 25px;
+}
+
+.chosenclassbox h2{
+    margin-bottom: 12.5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(209, 209, 209);
+    width: 3px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar:horizontal{
+    display: none;
+}
+
+::-webkit-scrollbar-button{
+    height: 12px;
+}
+
+::-webkit-scrollbar{
+    width: 7px;
+    height: 200px;
+    background-color: transparent;
+    border-radius: 1px;
+}
+
+.repcolor{
+    width: 12px;
+    margin-top: 9px;
+    height: 12px;
+    margin-right: 10px;
+    background-color: darkseagreen;
+    vertical-align: middle;
+    float: left;
+    border-radius: 7px;
+}
+
+.controlbox{
+    height: 64px;
+    margin-top: 12px;
+    padding: 12px;
+    background-color: rgb(242, 242, 242);
+}
+
+.plhimg{
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+ul.coursecontainer{
+    overflow-y: scroll;
+    background-color: transparent;
+    height: 475px;
+    padding: 12px 5px 0px 12px;
+}
+
+li.coursebox{
+    position: relative;
+    background-color: rgb(242, 242, 242);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    height: 50px;
+    margin-bottom: 12px;
+    padding: 25px;
+}
+
+.hld{
+    border-radius: 0px;
+    height: 12.5px;
+    z-index: 25;
+    background-color: transparent;
+}
+
+.classboxhldr{
+    position: absolute;
+    background-color: darkred;
+    pointer-events: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 15px;
+}
+
+.controltoolcontainer{
+    position: fixed;
+    overflow-y: hidden;
+    width: 35%;
+    height: 40%;
+    min-height: 400px;
+    max-height: 450px;
+    z-index: 99;
+    min-width: 500px;
+    max-width: 550px;
+    background-color: white;
+    box-shadow: 0px 0px 120px 3px rgba(0,0,0,0.3);
+}
+
+.ctmaincontainer{
+    height: 70%;
+    padding: 5% 7% 0px 7%;
+}
+
+.cttopbar{
+    height: 15%;
+    border-radius: 12.5px 12.5px 0px 0px;
+    padding: 5% 7% 0px 7%;
+    background-color: rgb(242, 242, 242);
+}
+
+.cttopbar h2{
+    float: left;
+}
+
+img.button{
+    cursor: pointer;
+}
+
+img.smallbutton{
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    height: 10px;
+    width: 10px;
+    z-index: 50;
+}
+
+img.courseclose{
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+
+img.bigclosebutton{
+    float: right;
+    margin-top: 8px;
+    height: 14px;
+    width: 14px;
+}
+
+img.addclasskindbutton, img.smallclosebutton{
+    margin-top: 2px;
+    width: 14px;
+    height: 14px;
+    float: right;
+}
+
+form h3{
+    display: inline;
+}
+
+input.inputs{
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(224, 224, 224);
+    border-bottom-width: 1px;
+    background-color: transparent;
+    
+}
+
+input{
+    color: rgb(152, 152, 152);
+}
+
+input#ctcn{
+    font-size: 20px;
+    width: 100%;
+}
+
+input.coursetitle{
+    border: none;
+    color: inherit;
+    line-height: 30px;
+    width: 80%;
+    height: 30px;
+    font-size: 25px;
+}
+
+.coursekindform{
+    margin-top: 3px;
+}
+
+ul.ccclasskindlist{
+    width: auto;
+    overflow-y: scroll;
+    margin: 6px 0px 0px 0px;
+    height: 45%;
+}
+
+ul.ccclasskindlist li{
+    padding: 12px;
+    background-color: rgb(242, 242, 242);
+    margin-top: 6px;
+}
+
+.innercontrol{
+    overflow-y: scroll;
+    height: 100%;
+}
+
+ul.ccclasskindlist li h3{
+    display: inline;
+    font-size: 14px;
+    width: 90%;
+}
+
+input.numbers{
+    display: inline;
+}
+
+.submitbutton{
+    margin-top: 2%;
+    padding: 2px;
+    line-height: 20px;
+    font-size: 14px;
+    float: right;
+}
+
+textarea#ejtargetta, textarea#ijtargetta{
+    min-width: 100%;
+    min-height: 58%;
+    max-height: 58%;
+    max-width: 100%;
+    margin: 2% 0px 0px 0px;
+    color: rgb(152, 152, 152);
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(242, 242, 242);
+    width: 100%;
+    height: 63%;
+}
+
+textarea#ejtargetta:focus, textarea#ijtargetta:focus, input:focus{
+    color: rgb(109, 109, 109);
+    border-bottom-color: rgb(109, 109, 109);
+}
+
+#iceiqrcodesvgbox{
+    width: 210px;
+    height: 210px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#iceiqrcodesvgbox svg{
+    width: 210px;
+    height: 210px;
+}
+
+::-webkit-input-placeholder{
+    font-weight: lighter;
+    color: rgb(209, 209, 209);
+}
