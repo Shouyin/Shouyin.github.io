@@ -145,6 +145,7 @@ input.kindname{
     width: 50%;
     overflow-x: hidden;
     color: inherit;
+    left: 0px;
     text-overflow: ellipsis;
     font-weight: 700;
     font-size: 14px;
