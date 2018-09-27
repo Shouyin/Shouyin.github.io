@@ -23,7 +23,7 @@ h5.info-h5{
 
 h6{
     width: 100%;
-    margin: 18px 0px 18px 0px;
+    margin: 10px 0px 10px 0px;
     font-size: 28px;
     text-align: center;
 }
@@ -81,7 +81,6 @@ div#resulttag{
     border-radius: 32px;
     
     margin: 0px auto 64px auto;
-    background-color: orange;
 }
 
 

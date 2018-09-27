@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 HEADER = {
     "Host": "www.dianping.com",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4"
 }
 
 
@@ -62,7 +62,7 @@ def fetchingAPage(restaurants, pageResponse):
             commentListSpans = commentListSpan.find_all("span")
             cmntlist = [x.b.text for x in commentListSpans]
         except IndexError as exception:
-            cmntlist = []
+            cmntlist = ["-", "-", "-"]
 
         try:
             tmp["prices"] = commentDivs.find_all("a")[1].b.text
@@ -73,6 +73,7 @@ def fetchingAPage(restaurants, pageResponse):
         tmp["actuAddr"] = addrSpans.text
         tmp["recommends"] = recmlist
         tmp["commentList"] = cmntlist
+        tmp["url"] = li.find_all("div", class_ = "tit")[0].a["href"]
 
         if tmp["blurAddr"] not in restaurants:
             restaurants[tmp["blurAddr"]] = []
