@@ -28,7 +28,6 @@ var changeChosen = (blurAddr) => {
     }
 };
 
-renderPage(rstntString);
 blurAddrSelect.onchange = () => {
     changeChosen(blurAddrSelect.value);
 };
@@ -48,3 +47,5 @@ httpRequest.onreadystatechange = () => {
 
 httpRequest.open("GET", "restaurants.json", true);
 httpRequest.send();
+
+renderPage(rstntString);
