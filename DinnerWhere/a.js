@@ -50,3 +50,5 @@ httpRequest.open("GET", "restaurants.json", true);
 httpRequest.send();
 
 renderPage(rstntString);
+
+body.style.height = document.body.clientHeight;

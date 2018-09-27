@@ -1,6 +1,7 @@
 h1{
     font-size: 90px;
-    text-align: center
+    text-align: center;
+    margin: 40px;
 }
 
 h2{
@@ -20,31 +21,55 @@ h5.info-h5{
 }
 
 div.main-container{
-    width: 80%;
-    margin: 50px auto;
-    padding: 5%;
-    background-color: rgb(245, 245, 245);
+    width: 750px;
+    margin: 128px auto;
+    padding: 0px;
     border-radius: 17px;
-    box-shadow: 0px 50px 97px 1px rgba(0,0,0,0.2);
     
 }
 
 select{
+    
+    display: block;
+    
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    
     width: 90%;
-    height: 90px;
-    font-size: 50px;
-    margin: 10px 5%;
+    height: 64px;
+    font-size: 28px;
+    margin: 10px auto;
+    padding: 0px 0px 0px 32px;
+    border: none;
+    
+    border-radius: 32px;
+    
+    background: -webkit-linear-gradient(90deg, rgb(233, 232, 232), rgb(245, 245, 245));
+    
+    text-align: center;
+    
+    box-shadow: 0px 20px 90px 2px rgba(0, 0, 0, 0.15)
+    
+    
+    
+}
+
+select:hover{
+    border-width: 3px;
 }
 
 button{
-    width: 70%;
-    height: 90px;
-    margin: 50px 15%;
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 64px auto;
     font-size: 50px;
-    background-color: #99CCFF;
-    box-shadow: 0px 10px 50px 5px rgba(0, 0, 0, 0.1);
+    background: -webkit-linear-gradient(90deg, rgb(255, 121, 40), rgb(255, 151, 75));
+    box-shadow: 0px 10px 50px 3px rgba(212, 117, 32, 0.2);
+    border-radius: 32px;
     border-color: transparent;
-    border-width: 10px;
+    border-width: 0px;
     
 }
 
