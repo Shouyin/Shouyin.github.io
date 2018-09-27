@@ -44,7 +44,6 @@ chooseButton.onclick = () => {
 
 httpRequest.onreadystatechange = () => {
     rstntString = httpRequest.responseText;
-    ph.innerHTML = rstntString;
 };
 
 httpRequest.open("GET", "restaurants.json", true);
