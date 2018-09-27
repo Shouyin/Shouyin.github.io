@@ -4,17 +4,18 @@ h1{
 }
 
 h2{
-    font-size: 20px;
+    font-size: 60px;
     text-align: center;
 }
 
 h3{
-    font-size: 12px;
+    font-size: 40px;
+    margin: 20px;
     text-align: center;
 }
 
 div.main-container{
-    width: 50%;
+    width: 70%;
     margin: 50px auto;
     padding: 10%;
     background-color: rgb(245, 245, 245);
@@ -24,8 +25,10 @@ div.main-container{
 }
 
 select{
-    width: 50%;
-    margin: 0 25% 0 25%;
+    width: 80%;
+    height: 50px;
+    font-size: 30px;
+    margin: 0 10%;
 }
 
 button{
