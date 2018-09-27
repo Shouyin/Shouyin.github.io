@@ -48,3 +48,5 @@ httpRequest.onreadystatechange = () => {
 
 httpRequest.open("GET", "restaurants.json", true);
 httpRequest.send();
+
+renderPage(rstntString);
