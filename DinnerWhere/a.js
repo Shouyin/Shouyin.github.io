@@ -19,6 +19,7 @@ var flashing = null;
 var count = 0;
 
 var MAX_FLASH = 5;
+var FLASH_INTEVAL = 100;
 
 var renderPage = (rstntString) => {
     rstntObj = JSON.parse(rstntString);
@@ -55,7 +56,7 @@ var randomChanging = () => {
 var timeoutInside = () => {
     if(count != MAX_FLASH){
         randomChanging();
-        flashing = setTimeout(timeoutInside, 200);
+        flashing = setTimeout(timeoutInside, FLASH_INTEVAL);
         count += 1;
     }else{
         endFlashing();
@@ -87,7 +88,7 @@ var addFlashing = () => {
             clearTimeout(flashing);
             count = 0;
         }
-        flashing = setTimeout(timeoutInside, 200);
+        flashing = setTimeout(timeoutInside, FLASH_INTEVAL);
     }
 };
 

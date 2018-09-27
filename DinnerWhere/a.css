@@ -71,6 +71,7 @@ select{
 
 div#resulttag{
     width: 80%;
+    top: 200px;
     height: auto;
     
     padding: 2%;
@@ -80,7 +81,7 @@ div#resulttag{
     
     border-radius: 32px;
     
-    margin: 0px auto 64px auto;
+    margin: 0px auto 250px auto;
 }
 
 
