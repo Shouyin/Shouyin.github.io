@@ -11,6 +11,7 @@ var currentChosen = []
 
 var renderPage = (rstntString) => {
     rstntObj = JSON.parse(rstntString);
+    console.log(rstntObj);
     for (let blurAddrs in rstntObj){
         let opt = document.createElement("option");
         opt.innerHTML = blurAddrs;
