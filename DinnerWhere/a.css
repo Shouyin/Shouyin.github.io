@@ -16,7 +16,7 @@ h3{
 }
 
 h5.info-h5{
-    font-size: 50px;
+    font-size: 80px;
     margin: 32px 0px 32px 0px;
     text-align: center;
 }
@@ -49,8 +49,8 @@ select{
     -webkit-appearance: none;
     
     width: 95%;
-    height: 72px;
-    font-size: 36px;
+    height: 96px;
+    font-size: 60px;
     margin: 10px auto;
     padding: 0px 0px 0px 32px;
     border: none;
@@ -71,7 +71,6 @@ select{
 
 div#resulttag{
     width: 80%;
-    top: 200px;
     height: auto;
     
     padding: 2%;
