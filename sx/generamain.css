@@ -1,0 +1,54 @@
+
+
+.generatorHeading{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#generatorMainBox{
+    overflow-y: scroll;
+    width: 100%;
+    height: 270px;
+}
+
+#generatorInputBox{
+    position: relative;
+    size: auto;
+    margin-top: 10px;
+}
+
+#weiboMainData{
+    float: left;
+    margin-right: 50px;
+}
+
+#weiboStatus{
+    float: left;
+}
+
+#foldbtn{
+    border-radius: 10px 10px 0px 0px;
+    transition-duration: 0.3s;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    border-bottom-width: 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    background-color: rgba(211, 211, 211, 0.4);
+    color: rgba(20, 20, 20, 0.3);
+}
+
+#foldbtn:hover{
+    background-color: white;
+}
+
+input{
+    line-height: 20px;
+    margin-bottom: 10px;
+}
