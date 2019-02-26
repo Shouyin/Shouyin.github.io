@@ -175,7 +175,7 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                 if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
                     let response = jsonRequest.responseText;
                     response = JSON.parse(jsonRequest.responseText);
-                    // allVueConfigs["data"]["homePage"] = response["homepageConfig"];
+                    allVueConfigs["data"]["homePage"] = response["homepageConfig"];
 
                 }else if(jsonRequest.status == 500){
                     alert("Something wrong behind the scene.. ask for help!");
