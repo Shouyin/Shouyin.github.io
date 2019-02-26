@@ -14,7 +14,7 @@
         ],
         "latest": {
             "title": "六学生成",
-            "description": "太闲了做的，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
+            "description": "太闲了，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
             "url": "sx/sgene.html",
             "background": ""
         }
@@ -30,13 +30,13 @@
             {
                 "name": "哪儿吃？",
                 "url": "dw/a.html",
-                "description": "A tool for finding restaurant when you're panic to find where for a dinner",
+                "description": "随机选择餐厅",
                 "icon": ""
             },
             {
                 "name": "Gun shots",
                 "url": "grv/mv.html",
-                "description": "Shot a gun with your phone!",
+                "description": "晃手机打枪",
                 "icon": ""
             },
             {

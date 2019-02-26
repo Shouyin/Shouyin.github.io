@@ -28,10 +28,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,43 +46,34 @@
         </ul>
       </div>
     </nav>
-            <div>
-                <figure class="figure">
-                  <img v-bind:src="homePage.pic" class="figure-img img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
-                    <div class="container">
-                        <figcaption class="figure-caption" style="color: rgb(200, 200, 200)">{{ homePage.picLabel }}</figcaption>
-                    </div>
-                </figure>
-                
-            </div>
-            <br />
-            <div class="container mt-5">
-                <div class="container rounded" style="padding:50px;background-color: rgb(245,245,245);box-shadow: 0px 25px 80px 0px rgba(0, 0, 0, 0.2)">
-                    <h1 class="text-center" style="font-family:serif;">{{ computeGreeting() }}</h1>
-                    <h1 class="text-center" style="font-family:serif">{{ getQues() }}</h1>
-                    <br />
-                    <div class="input-group mb-3 mx-auto" style="width: 50%;min-width: 300px;">
-                      <input type="text" id="yrmsg"class="form-control" placeholder="想说什么.." aria-label="Your words" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" onclick="yrmsgMethod()">发送</button>
+            
+            <div style="min-height: 1000px">
+                <div style="overflow:hidden">
+                    <div class="card bg-dark text-white" style="border-radius:0">
+                      <img class="card-img" src="s/fish.png" alt="Card image" style="height: 200px;filter: blur(18px);">
+                      <div class="card-img-overlay">
+                          <div class="container" style="padding: 60px">
+                            <h1>Tools</h1>
+                        </div>  
+
                       </div>
                     </div>
-                    <h5 class="text-center" id="anonymousCreature" style="font-family:serif;font-size: 18px;display: none;transition-duration: 1s;
-transition-timing-function: linear;
-transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到它。</h5>
                 </div>
-            </div>
-            <br />
-            <div class="container my-5">
-                <h2 class="my-4" style="font-weight:200">最新内容</h2>
-                <div class="card">
-                  <div class="card-body" style="box-shadow: 0px 12px 19px 0px rgba(0, 0, 0, 0.2)">
-                    <h5 class="card-title">{{ homePage.latest.title }}</h5>
-                    <p class="card-text">{{ homePage.latest.description }}</p>
-                    <a :href="homePage.latest.url" class="btn btn-primary">去试试！</a>
-                  </div>
+                
+                <div class="container" style="margin-top: 18px;padding: 60px">
+                    <h2 style="font-size: 1.5rem;"><em>想法从精神深处迸现出来的时候你总是毫无防备——<br />可能是坐在厕所里的时候，也可能是在完成某个无聊project的时候。</em></h2>
+                    <h5 class="float-right" style="color:rgb(95, 95, 95)">—— 沃子集烁德</h5>
                 </div>
+                
+                <div class="container" style="padding: 60px">
+                    
+                    <div class="list-group">
+                      <a :href="tl.url" v-for="tl in toolsPage.allTools" class="list-group-item list-group-item-action"><b>{{ tl.name }}</b><br />{{ tl.description }}</a>
+                    </div>
+                </div>
+                
             </div>
+            
             
             <footer style="padding: 50px;background-color: gray;color: rgb(255, 255, 255);margin-top: 100px;">
                 <div class="container my-auto text-center">
@@ -121,6 +112,36 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                                 "background": ""
                             }
                         },
+                        
+                        toolsPage:
+                        {
+                            "allTools": [
+                                {
+                                    "name": "timetable",
+                                    "url": "tt/timetable.html",
+                                    "description": "A timetable planner",
+                                    "icon": ""
+                                },
+                                {
+                                    "name": "哪儿吃？",
+                                    "url": "dw/a.html",
+                                    "description": "A tool for finding restaurant when you're panic to find where for a dinner",
+                                    "icon": ""
+                                },
+                                {
+                                    "name": "Gun shots",
+                                    "url": "grv/mv.html",
+                                    "description": "Shot a gun with your phone!",
+                                    "icon": ""
+                                },
+                                {
+                                    "name": "六学生成器",
+                                    "url": "sx/sgene.html",
+                                    "description": "两开花，两开花",
+                                    "icon": ""
+                                }
+                            ]
+                        }
                     },
                     watch: {
                         
@@ -138,35 +159,6 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                         }
                     },
                     methods: {
-                        computeGreeting: function(){
-                            let nowDate = new Date();
-                            let hours = nowDate.getHours();
-                            if (hours >= 5 && hours <= 9){
-                                return "早安，";
-                            }else if(hours > 9 && hours <= 11){
-                                return "上午好，";
-                            }else if(hours > 11 && hours <= 13){
-                                return "午安，";
-                            }else if(hours > 13 && hours <= 17){
-                                return "下午好，";
-                            }else if(hours > 17 && hours <= 22){
-                                return "晚上好，";
-                            }else{
-                                return "晚安，";
-                            }
-                        },
-                        getQues: function(){
-                            let allQues = [
-                                "还顺利吗？",
-                                "有什么事情发愁吗？",
-                                "现在怎么样？",
-                                "今天心情如何？",
-                                "天气还好吗？",
-                                "空气怎么样？", "还顺利吗？"
-                            ]
-                            let i = Math.ceil(Math.random()*5)
-                            return allQues[i];
-                        }
                     }
                 };
             
@@ -175,6 +167,7 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                 if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
                     let response = jsonRequest.responseText;
                     response = JSON.parse(jsonRequest.responseText);
+                    allVueConfigs["data"]["toolsPage"] = response["toolsConfig"];
                     allVueConfigs["data"]["homePage"] = response["homepageConfig"];
 
                 }else if(jsonRequest.status == 500){
@@ -184,38 +177,6 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
 
             jsonRequest.open("GET", '/pozhanConfig.json', true);
             jsonRequest.send();
-            
-            let sdMethod = () => {
-                document.getElementById("anonymousCreature").style.display = "block";
-                document.getElementById("anonymousCreature").innerHTML = "宇宙中的某个拥有人类情感的生物会接收到它。";
-            }
-            
-            let stopTimeout = "";
-            
-            let yrmsgMethod = () => {
-                
-                const anonymousCreature = document.getElementById("anonymousCreature");
-                let yrMessage = document.getElementById("yrmsg").value;
-                
-                
-                
-                if(document.getElementById("yrmsg").value != ""){
-                    document.getElementById("yrmsg").value = "";
-                
-                    anonymousCreature.style.display = "block";
-                    anonymousCreature.innerHTML = "发送着呢..";
-                    Math.ceil(Math.random()*800);
-                    
-                    clearTimeout(stopTimeout);
-                    setTimeout(sdMethod, Math.ceil(Math.random()*1000) + 800);
-                }else{
-                    anonymousCreature.style.display = "block";
-                    anonymousCreature.innerHTML = "唔..";
-                    stopTimeout = setTimeout(() => {
-                        anonymousCreature.style.display = "none";
-                    }, Math.ceil(1800));
-                }
-            };
             
             
             let dspBox = new Vue(allVueConfigs);
