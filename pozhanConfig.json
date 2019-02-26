@@ -1,0 +1,50 @@
+{
+    "homepageConfig": {
+        "pic": "s/fish.png",
+        "picLabel": "鱼 - 首银",
+        "tools": [
+            {
+                "name": "timetable",
+                "url": "tt/timetable.html"
+            },
+            {
+                "name": "哪儿吃？",
+                "url": "dw/a.html"
+            }
+        ],
+        "latest": {
+            "title": "六学生成",
+            "description": "太闲了做的，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
+            "url": "sx/sgene.html",
+            "background": ""
+        }
+    },
+    "toolsConfig": {
+        "allTools": [
+            {
+                "name": "timetable",
+                "url": "tt/timetable.html",
+                "description": "A timetable planner",
+                "icon": ""
+            },
+            {
+                "name": "哪儿吃？",
+                "url": "dw/a.html",
+                "description": "A tool for finding restaurant when you're panic to find where for a dinner",
+                "icon": ""
+            },
+            {
+                "name": "Gun shots",
+                "url": "grv/mv.html",
+                "description": "Shot a gun with your phone!",
+                "icon": ""
+            },
+            {
+                "name": "六学生成器",
+                "url": "sx/sgene.html",
+                "description": "两开花，两开花",
+                "icon": ""
+            }
+        ] 
+    }
+}
