@@ -47,27 +47,14 @@
     </nav>
             
             <div style="min-height: 1000px">
-                <div style="overflow:hidden">
-                    <div class="card bg-dark text-white" style="border-radius:0">
-                      <img class="card-img" src="s/fish.png" alt="Card image" style="height: 200px;filter: blur(18px);">
-                      <div class="card-img-overlay">
-                          <div class="container" style="padding: 60px">
-                            <h1>Tools</h1>
-                        </div>  
-
-                      </div>
-                    </div>
-                </div>
-                
-                <div class="container" style="margin-top: 18px;padding: 60px">
-                    <h2 style="font-size: 1.5rem;"><em>想法从精神深处迸现出来的时候你总是毫无防备——<br />可能是坐在厕所里的时候，也可能是在完成某个无聊project的时候。</em></h2>
-                    <h5 class="float-right" style="color:rgb(95, 95, 95)">—— 沃子集烁德</h5>
-                </div>
-                
                 <div class="container" style="padding: 60px">
-                    
-                    <div class="list-group">
-                      <a :href="tl.url" v-for="tl in pozhanConfigs.toolsConfig.allTools" class="list-group-item list-group-item-action"><b>{{ tl.name }}</b><br />{{ tl.description }}</a>
+                    <h1>Feelings</h1>
+                </div>
+                <div class="container" style="padding: 60px">
+                    <div style="margin-bottom: 60px" v-for="emotion in pozhanConfigs.emotions">
+                        <h5>{{ emotion.emo }}</h5>
+                        <h5 style="color: rgb(175, 175, 175); font-size: 1rem">{{ emotion.writter }} {{ emotion.timestampTag }}</h5>
+                        <hr />
                     </div>
                 </div>
                 
@@ -91,80 +78,86 @@
                     el: "#forvue",
                     data: {
                         aVueMsg: "This message is put by Vue",
-                        pozhanConfigs: {
-                            "homepageConfig": {
-                                "pic": "s/fish.png",
-                                "picLabel": "鱼 - 首银",
-                                "latest": {
-                                    "title": "六学生成",
-                                    "description": "太闲了，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
-                                    "url": "sx/sgene.html",
-                                    "background": ""
-                                }
-                            },
-                            "toolsConfig": {
-                                "allTools": [
-                                    {
-                                        "name": "timetable",
-                                        "url": "tt/timetable.html",
-                                        "description": "A timetable planner",
-                                        "icon": ""
-                                    },
-                                    {
-                                        "name": "哪儿吃？",
-                                        "url": "dw/a.html",
-                                        "description": "随机选择餐厅",
-                                        "icon": ""
-                                    },
-                                    {
-                                        "name": "Gun shots",
-                                        "url": "grv/mv.html",
-                                        "description": "晃手机打枪",
-                                        "icon": ""
-                                    },
-                                    {
-                                        "name": "六学生成器",
-                                        "url": "sx/sgene.html",
-                                        "description": "两开花，两开花",
-                                        "icon": ""
-                                    }
-                                ] 
-                            },
-                            "emotions": [
-                                {
-                                    "writter": "首银",
-                                    "emo": "焦虑的时候停下来歇会吧，那些问题总会有答案。",
-                                    "timestampTag": "吃饭的时候想到"
-                                }
-                            ],
-                            "navig": {
-                                "navigButtons": [
-                                    {
-                                        "item": "Home",
-                                        "url": "/",
-                                    },
-
-                                    {
-                                        "item": "About",
-                                        "url": ""
-                                    },
-                                    {
-                                        "item": "Emotions",
-                                        "url": ""
-                                    }
-                                ],
-                                "tools": [
-                                    {
-                                        "name": "timetable",
-                                        "url": "tt/timetable.html"
-                                    },
-                                    {
-                                        "name": "哪儿吃？",
-                                        "url": "dw/a.html"
-                                    }
-                                ]
-                            }
-                        }
+                        pozhanConfigs: 
+                        {
+    "homepageConfig": {
+        "pic": "s/fish.png",
+        "picLabel": "鱼 - 首银",
+        "latest": {
+            "title": "六学生成",
+            "description": "太闲了，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
+            "url": "sx/sgene.html",
+            "background": ""
+        }
+    },
+    "toolsConfig": {
+        "allTools": [
+            {
+                "name": "timetable",
+                "url": "tt/timetable.html",
+                "description": "A timetable planner",
+                "icon": ""
+            },
+            {
+                "name": "哪儿吃？",
+                "url": "dw/a.html",
+                "description": "随机选择餐厅",
+                "icon": ""
+            },
+            {
+                "name": "Gun shots",
+                "url": "grv/mv.html",
+                "description": "晃手机打枪",
+                "icon": ""
+            },
+            {
+                "name": "六学生成器",
+                "url": "sx/sgene.html",
+                "description": "两开花，两开花",
+                "icon": ""
+            }
+        ] 
+    },
+    "emotions": [
+        {
+            "writter": "首银",
+            "emo": "焦虑的时候停下来歇会吧，那些问题总会有答案。",
+            "timestampTag": "吃饭的时候想到"
+        },
+        {
+            "writter": "首银",
+            "emo": "冲动的时候不要做出任何决定，不要说任何话",
+            "timestampTag": "睡觉之前想到："
+        }
+    ],
+    "navig": {
+        "navigButtons": [
+            {
+                "item": "Home",
+                "url": "/",
+            },
+    
+            {
+                "item": "About",
+                "url": "abut.html"
+            },
+            {
+                "item": "Emotions",
+                "url": ""
+            }
+        ],
+        "tools": [
+            {
+                "name": "timetable",
+                "url": "tt/timetable.html"
+            },
+            {
+                "name": "哪儿吃？",
+                "url": "dw/a.html"
+            }
+        ]
+    }
+}
                     },
                     watch: {
                         

@@ -2,16 +2,6 @@
     "homepageConfig": {
         "pic": "s/fish.png",
         "picLabel": "鱼 - 首银",
-        "tools": [
-            {
-                "name": "timetable",
-                "url": "tt/timetable.html"
-            },
-            {
-                "name": "哪儿吃？",
-                "url": "dw/a.html"
-            }
-        ],
         "latest": {
             "title": "六学生成",
             "description": "太闲了，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
@@ -46,5 +36,44 @@
                 "icon": ""
             }
         ] 
+    },
+    "emotions": [
+        {
+            "writter": "首银",
+            "emo": "焦虑的时候停下来歇会吧，那些问题总会有答案。",
+            "timestampTag": "吃饭的时候想到"
+        },
+        {
+            "writter": "首银",
+            "emo": "冲动的时候不要做出任何决定，不要说任何话。",
+            "timestampTag": "睡觉之前想到"
+        }
+    ],
+    "navig": {
+        "navigButtons": [
+            {
+                "item": "Home",
+                "url": "/",
+            },
+    
+            {
+                "item": "About",
+                "url": "abut.html"
+            },
+            {
+                "item": "Feelings",
+                "url": "emotn.html"
+            }
+        ],
+        "tools": [
+            {
+                "name": "timetable",
+                "url": "tt/timetable.html"
+            },
+            {
+                "name": "哪儿吃？",
+                "url": "dw/a.html"
+            }
+        ]
     }
 }

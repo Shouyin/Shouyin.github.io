@@ -41,7 +41,7 @@
               Tools
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a v-for="tool in homePage.tools" class="dropdown-item" :href="tool.url ">{{ tool.name }}</a>
+              <a v-for="tool in pozhanConfigs.navig.tools" class="dropdown-item" :href="tool.url ">{{ tool.name }}</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="toolsPage.html">All tools (WBAs)</a>
             </div>
@@ -50,10 +50,10 @@
       </div>
     </nav>
             <div>
-                <figure class="figure">
-                  <img v-bind:src="homePage.pic" style="min-height: 500px" class="figure-img img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figure class="figure" style="width: 100%;overflow: hidden">
+                  <img v-bind:src="pozhanConfigs.homepageConfig.pic" style="min-width: 900px;" class="figure-img img-fluid">
                     <div class="container">
-                        <figcaption class="figure-caption" style="color: rgb(200, 200, 200)">{{ homePage.picLabel }}</figcaption>
+                        <figcaption class="figure-caption" style="color: rgb(200, 200, 200)">{{ pozhanConfigs.homepageConfig.picLabel }}</figcaption>
                     </div>
                 </figure>
                 
@@ -80,9 +80,9 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                 <h2 class="my-4" style="font-weight:200">最新内容</h2>
                 <div class="card">
                   <div class="card-body" style="box-shadow: 0px 12px 19px 0px rgba(0, 0, 0, 0.2)">
-                    <h5 class="card-title">{{ homePage.latest.title }}</h5>
-                    <p class="card-text">{{ homePage.latest.description }}</p>
-                    <a :href="homePage.latest.url" class="btn btn-primary">去试试！</a>
+                    <h5 class="card-title">{{ pozhanConfigs.homepageConfig.latest.title }}</h5>
+                    <p class="card-text">{{ pozhanConfigs.homepageConfig.latest.description }}</p>
+                    <a :href="pozhanConfigs.homepageConfig.latest.url" class="btn btn-primary">去试试！</a>
                   </div>
                 </div>
             </div>
@@ -104,26 +104,80 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                     el: "#forvue",
                     data: {
                         aVueMsg: "This message is put by Vue",
-                        homePage: {
-                            "pic": "s/fish.png",
-                            "picLabel": "鱼(EX!) - 首银",
-                            "tools": [
+                        pozhanConfigs: {
+                            "homepageConfig": {
+                                "pic": "s/fish.png",
+                                "picLabel": "鱼 - 首银",
+                                "latest": {
+                                    "title": "六学生成",
+                                    "description": "太闲了，完全从微博扒的网页做的，算是Vue.js框架的练手。不要用来干坏事哦。",
+                                    "url": "sx/sgene.html",
+                                    "background": ""
+                                }
+                            },
+                            "toolsConfig": {
+                                "allTools": [
+                                    {
+                                        "name": "timetable",
+                                        "url": "tt/timetable.html",
+                                        "description": "A timetable planner",
+                                        "icon": ""
+                                    },
+                                    {
+                                        "name": "哪儿吃？",
+                                        "url": "dw/a.html",
+                                        "description": "随机选择餐厅",
+                                        "icon": ""
+                                    },
+                                    {
+                                        "name": "Gun shots",
+                                        "url": "grv/mv.html",
+                                        "description": "晃手机打枪",
+                                        "icon": ""
+                                    },
+                                    {
+                                        "name": "六学生成器",
+                                        "url": "sx/sgene.html",
+                                        "description": "两开花，两开花",
+                                        "icon": ""
+                                    }
+                                ] 
+                            },
+                            "emotions": [
                                 {
-                                    "name": "timetable",
-                                    "url": "tt/timetable.html"
-                                },
-                                {
-                                    "name": "哪儿吃？",
-                                    "url": "dw/a.html"
+                                    "writter": "首银",
+                                    "emo": "焦虑的时候停下来歇会吧，那些问题总会有答案。",
+                                    "timestampTag": "吃饭的时候想到"
                                 }
                             ],
-                            "latest": {
-                                "title": "六学生成",
-                                "description": "太闲了做的，完全从微博扒的网页，算是Vue.js框架的练手。不要用来干坏事哦。",
-                                "url": "sx/sgene.html",
-                                "background": ""
+                            "navig": {
+                                "navigButtons": [
+                                    {
+                                        "item": "Home",
+                                        "url": "/",
+                                    },
+
+                                    {
+                                        "item": "About",
+                                        "url": ""
+                                    },
+                                    {
+                                        "item": "Emotions",
+                                        "url": ""
+                                    }
+                                ],
+                                "tools": [
+                                    {
+                                        "name": "timetable",
+                                        "url": "tt/timetable.html"
+                                    },
+                                    {
+                                        "name": "哪儿吃？",
+                                        "url": "dw/a.html"
+                                    }
+                                ]
                             }
-                        },
+                        }
                     },
                     watch: {
                         
@@ -178,7 +232,7 @@ transition-delay: 2s;">宇宙中的某个拥有人类情感的生物会接收到
                 if (jsonRequest.readyState == 4 && jsonRequest.status == 200) {
                     let response = jsonRequest.responseText;
                     response = JSON.parse(jsonRequest.responseText);
-                    allVueConfigs["data"]["homePage"] = response["homepageConfig"];
+                    allVueConfigs["data"]["pozhanConfigs"] = response;
 
                 }else if(jsonRequest.status == 500){
                     alert("Something wrong behind the scene.. ask for help!");
