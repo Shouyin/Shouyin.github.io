@@ -53,9 +53,8 @@
         "navigButtons": [
             {
                 "item": "Home",
-                "url": "/",
+                "url": "/"
             },
-    
             {
                 "item": "About",
                 "url": "abut.html"
