@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Skipity</title>
+    </head>
+    <body onclick="clearChosen();">
+        <!-- main chessboard -->
+        <div id="mainContainer">
+            <style>
+                .cls-1{
+                    fill: rgb(255, 255, 255)
+                }
+            </style>
+            
+            <header style="height: 100px">
+                <h1>棋盘 for COMP30024</h1>
+                <div id="tlbox">
+                    首银 2019
+                    
+                </div>
+                <div style="clear:both">
+                    
+                    </div>
+            </header>
+            
+            <div id="chessContainer" style="position: relative;width:900px; height: 800px;">
+                
+                <div style="display:none">
+                    <div id="pieceTemplate" style="width: 72px; height: 72px; position: absolute; background-color: red; border-radius: 36px;">
+                        <p style="text-align: center; color: whitesmoke;">1</p>
+                    </div>
+                    <svg class="hexas" id="hxTemplate" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 442.51 510.96"><title>hexaforchess</title><polygon class="cls-1" points="0.5 382.93 0.5 128.03 221.25 0.58 442.01 128.03 442.01 382.93 221.25 510.38 0.5 382.93"/><path d="M256.48,1.42,476.73,128.58V382.91L256.48,510.07,36.23,382.91V128.58L256.48,1.42m0-1.15L35.23,128V383.49L256.48,511.23,477.73,383.49V128L256.48.27Z" transform="translate(-35.23 -0.27)"/></svg>
+                    
+                    <button id="cgButton" style="margin-right: 9px; float: left;">
+                    更改颜色
+                </button>
+                </div>
+                
+                
+            
+            </div>
+            
+            
+        </div>
+        
+        <script>
+            let globalSelected = null;
+            let piecesInBoard = []
+            
+            class HexaSingle {
+            
+                constructor(hexaDom) {
+                    this.hexaDom = hexaDom;
+                    this.neibours = [undefined, undefined,undefined,undefined,undefined,undefined];
+                    this.coordin = [hexaDom.style.left, hexaDom.style.top]
+                    this.hasPiece = false;
+                    this.pieceGoes = [
+                        Number(this.coordin[0].slice(0, -2)) + (Number(this.hexaDom.style.width.slice(0, -2)) / 8) + "px"
+                                      , 
+                        Number(this.coordin[1].slice(0, -2)) + (Number(this.hexaDom.style.height.slice(0, -2)) / 8) + "px"];
+                    
+                    this.hexaDom.ondragover = () => {
+                        
+                        if (globalSelected && !this.hasPiece) {
+                            this.placePiece(globalSelected);
+                            globalSelected = null;
+                        }
+                    }
+                    
+                    this.hexaDom.onclick = () => {
+                        if (globalSelected && !this.hasPiece) {
+                            this.placePiece(globalSelected);
+                            globalSelected = null;
+                        }
+                    }
+                    
+                    // add drop!
+                    
+                    // get coordin!
+                }
+            
+                placePiece(piece) {
+                    this.hasPiece = true;
+                    piece.changePosition(this.pieceGoes);
+                    piece.addParent(this);
+                }
+            
+                hightlightHexa() {
+                    
+                }
+                
+                highlightNeibours() {
+                    
+                }
+                
+                changeNeibours(neibours) {
+                    this.neibours = neibours
+                }
+                
+                pieceLeaving() {
+                    this.hasPiece=false;
+                }
+                
+                
+                
+            }
+            
+            class Piece {
+                
+                constructor(pieceDom, teamFlag) {
+                    this.pieceDom = pieceDom;
+                    this.teamFlag = teamFlag;
+                    this.parent = null;
+                    
+                    this.number = -1;
+                    
+                    this._changeColor(this.teamFlag);
+                    
+                    this.pieceDom.ondrag = (v) => {
+                        clearChosen();
+                        globalSelected = this;
+                    }
+                    
+                    this.pieceDom.ondragend = (v) => {
+                        clearChosen();
+                        
+                    }
+                    
+                    this.pieceDom.onclick = (e) => {
+                        e.stopPropagation();
+                        clearChosen();
+                        globalSelected = this;
+                        
+                        this.pieceDom.style.boxShadow = "0px 9px 80px 0px rgba(0, 0, 0, 0.5)";
+                        this.pieceDom.style.borderWidth = "1px";
+                        this.pieceDom.style.borderStyle = "solid"
+                        this.pieceDom.style.borderColor = "transparent";
+                        
+                    }
+                    
+                    this.pieceDom.draggable = true;
+                }
+                
+                addParent(Hexa) {
+                    if(this.parent) {
+                        this.parent.pieceLeaving();
+                    }
+                    this.parent = Hexa;
+                }
+                
+                changePosition(position) {
+                    this.pieceDom.style.left = position[0];
+                    this.pieceDom.style.top = position[1];
+                }
+                
+                _changeColor(teamFlag) {
+                    // change Color
+                    this.pieceDom.style.backgroundColor = teamFlag;
+                }
+                
+                changeFlag(teamFlag) {
+                    this.teamFlag = teamFlag;
+                    this._changeColor(this.teamFlag);
+                    // change color..
+                }
+                
+                editNumber(newNumber) {
+                    this.number = newNumber;
+                    this.pieceDom.children[0].innerHTML = this.number;
+                }
+                
+                highlightActions() {
+                    
+                }
+                
+            }
+            
+            const hexaBoard = [4, 5, 6, 7, 6, 5, 4];
+            const chessContainer = document.getElementById("chessContainer");
+            const hexaTemplate = document.getElementById("hxTemplate");
+            
+            const pieceTemplate = document.getElementById("pieceTemplate");
+            
+            const cgButton = document.getElementById("cgButton");
+            const tllbox = document.getElementById("tlbox");
+            
+            const pieces = [
+                {
+                    color: "blue",
+                    coord: [[0, 0], [1, 0], [2, 0], [3, 0]]
+                },
+                {
+                    color: "red",
+                    coord: [[0, 3], [0, 4], [0, 5], [0, 6]]
+                },
+                {
+                    color: "green",
+                    coord: [[6, 3], [5, 4], [4, 5], [3, 6]]
+                }
+            ]
+            
+            let chessBoard = [];
+            
+            let currentChosen = null;
+            
+            let spawnPiece = (pieces, chessBoard) => {
+                for (let pieceKind of pieces) {
+                    let pieceFlag = pieceKind.color;
+                    let tmpPieces = {
+                        color: pieceFlag,
+                        piece: []
+                    }
+                    for (let piece of pieceKind.coord) {
+                        let currentPiece = pieceTemplate.cloneNode(true);
+                        chessContainer.appendChild(currentPiece);
+                        let pieceInBoard = new Piece(currentPiece, pieceFlag);
+                        
+                        console.log(piece[0] + "" + piece[1])
+
+                        chessBoard[piece[1]][piece[0]].placePiece(pieceInBoard);
+                        
+                        tmpPieces.piece.push(pieceInBoard);
+                        
+                    }
+                    piecesInBoard.push(tmpPieces);
+                    
+                }
+                updateNumbers();
+            }
+            
+            let clearChosen = () => {
+                globalSelected = null;
+                for (let pieceKind of piecesInBoard) {
+                    for (let pieceOne of pieceKind.piece) {
+                        pieceOne.pieceDom.style.boxShadow = "";
+                        pieceOne.pieceDom.style.borderWidth = "0px";
+                        pieceOne.pieceDom.style.borderColor = "transparent";
+                    }
+                }
+            }
+            
+            function updateNumbers() {
+        
+                for (let piecesKind of piecesInBoard) {
+                    let index = 1;
+                    for (let pieceIn of piecesKind.piece) {
+                        pieceIn.editNumber(index);
+                        index += 1;
+                    }
+                }
+            }
+            
+            let setButton = () => {
+                for (let pieceKind of pieces) {
+                    let newCgbtn = cgButton.cloneNode(false);
+                    newCgbtn.innerHTML = "更改选中的棋子为" + pieceKind.color;
+                    newCgbtn.onclick = (event) => {
+                        globalSelected.changeFlag(pieceKind.color);
+                        console.log(globalSelected);
+                        for (let pieceKindInBoardS of piecesInBoard) {
+                            if(pieceKindInBoardS.piece.indexOf(globalSelected) != -1) {
+                                pieceKindInBoardS.piece = pieceKindInBoardS.piece.slice(0, pieceKindInBoardS.piece.indexOf(globalSelected)).concat(pieceKindInBoardS.piece.slice(pieceKindInBoardS.piece.indexOf(globalSelected) + 1, pieceKindInBoardS.piece.length));
+                            }
+                            if(pieceKindInBoardS.color == pieceKind.color) {
+                                pieceKindInBoardS.piece.push(globalSelected);
+                            }
+                        }
+                        updateNumbers();
+                        
+                        event.preventDefault();
+                    }
+                    
+                    tllbox.appendChild(newCgbtn);
+                }
+            } 
+            
+            let getNeibours = (x, y, hexaDoms, isUpOrDown) => {
+                let coordins = [];
+                let upCoordins = [
+                    [-1, -1], [0, -1], [1, 0], [1, 1], [0, 1], [-1, 0]
+                ]
+                let downCoordins = [
+                    [0, -1], [1, -1], [1, 0], [0, 1], [-1, 1], [-1, 0]
+                ]
+                
+                let currentCoordins = isUpOrDown ? upCoordins: downCoordins;
+                
+                for (let partCoordins of currentCoordins) {
+                    try{
+                        let neibour = hexaDoms[x + partCoordins[0]][y + partCoordins[1]]
+                        coordins.push(neibour)
+                    }catch{
+                        coordins.push(undefined)
+                    }
+                    
+                }
+                return coordins
+                
+            }
+            let buildBoardFunc = (width, height, leftGp, topGp, dom, hexaTemplate, hexaBoard) => {
+                let hexaIndex = 0;
+                let hexaDoms = [];
+                for (let rowHexas of hexaBoard) {
+                    console.log(rowHexas);
+                    let tmpRow = [];
+                    let i = 0;
+                    let startPosition = [(Math.max.apply(null, hexaBoard) - rowHexas) * width / 2, hexaIndex * topGp];
+                    console.log(startPosition);
+                    while(i < rowHexas) {
+                        let hexaSingleDom = hexaTemplate.cloneNode(true);
+                        dom.appendChild(hexaSingleDom);
+                        
+                        hexaSingleDom.style.width = width;
+                        hexaSingleDom.style.height = height;
+                        hexaSingleDom.style.position = "absolute";
+                        hexaSingleDom.style.left = startPosition[0] + i * width + "px";
+                        hexaSingleDom.style.top = startPosition[1] + "px";
+                        
+                        console.log([hexaSingleDom.style.left, hexaSingleDom.style.top]);
+                        
+                        
+                        let hexaSingle = new HexaSingle(hexaSingleDom);
+                        
+                        tmpRow.push(hexaSingle);
+                        
+                        i += 1;
+                        
+                    }
+                    hexaIndex += 1;
+                    hexaDoms.push(tmpRow);
+                }
+                
+                let rY = 0;
+                for (let hexaRow of hexaDoms) {
+                    let rX = 0;
+                    let longestCn = Math.max(hexaBoard);
+                    let isUpOrDown = true;
+                    for (let hexaDom of hexaRow) {
+                        hexaDom.changeNeibours(getNeibours(rX, rY, hexaDoms, isUpOrDown));
+                        if (hexaRow.length == longestCn) {
+                            isUpOrDown = !isUpOrDown
+                        }
+                        rX += 1;
+                    }
+                    rY += 1;
+                    
+                }
+                return hexaDoms;
+            }
+            
+            chessBoard = 
+                buildBoardFunc(100, 99, 90, 80, chessContainer, hexaTemplate, hexaBoard, chessBoard);
+            console.log(chessBoard);
+            spawnPiece(pieces, chessBoard);
+            
+            setButton()
+            
+            
+        </script>
+    </body>
+</html>
