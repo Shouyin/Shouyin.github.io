@@ -16,6 +16,9 @@
                 <h1>棋盘 for COMP30024</h1>
                 <div id="tlbox">
                     首银 2019
+                    <button onclick="resetB();">
+                        reset
+                    </button>
                     
                 </div>
                 <div style="clear:both">
@@ -348,12 +351,17 @@
                 return hexaDoms;
             }
             
-            chessBoard = 
-                buildBoardFunc(100, 99, 90, 80, chessContainer, hexaTemplate, hexaBoard, chessBoard);
-            console.log(chessBoard);
-            spawnPiece(pieces, chessBoard);
+            let resetB = () => {
+                chessContainer.innerHTML = "."
+                chessBoard = 
+                    buildBoardFunc(100, 99, 90, 80, chessContainer, hexaTemplate, hexaBoard, chessBoard);
+                console.log(chessBoard);
+                piecesInBoard = [];
+                spawnPiece(pieces, chessBoard);
+            }
             
             setButton()
+            resetB()
             
             
         </script>
