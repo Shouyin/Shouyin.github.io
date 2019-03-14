@@ -12,7 +12,7 @@
                 }
             </style>
             
-            <header style="height: 100px">
+            <header style="">
                 <h1>棋盘 for COMP30024</h1>
                 <div id="tlbox">
                     首银 2019
@@ -20,7 +20,9 @@
                         reset
                     </button>
                     
+                    
                 </div>
+                    
                 <div style="clear:both">
                     
                     </div>
@@ -29,7 +31,7 @@
             <div id="chessContainer" style="position: relative;width:900px; height: 800px;">
                 
                 <div style="display:none">
-                    <div id="pieceTemplate" style="width: 72px; height: 72px; position: absolute; background-color: red; border-radius: 36px;">
+                    <div id="pieceTemplate" style="width: 72px; height: 72px; position: absolute; background-color: red; border-radius: 36px;z-index: 99">
                         <p style="text-align: center; color: whitesmoke;">1</p>
                     </div>
                     <svg class="hexas" id="hxTemplate" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 442.51 510.96"><title>hexaforchess</title><polygon class="cls-1" points="0.5 382.93 0.5 128.03 221.25 0.58 442.01 128.03 442.01 382.93 221.25 510.38 0.5 382.93"/><path d="M256.48,1.42,476.73,128.58V382.91L256.48,510.07,36.23,382.91V128.58L256.48,1.42m0-1.15L35.23,128V383.49L256.48,511.23,477.73,383.49V128L256.48.27Z" transform="translate(-35.23 -0.27)"/></svg>
@@ -42,6 +44,8 @@
                 
             
             </div>
+            
+            
             
             
         </div>
@@ -184,6 +188,8 @@
             
             const pieceTemplate = document.getElementById("pieceTemplate");
             
+            const pieceContainer = document.getElementById("piecesContainer");
+            
             const cgButton = document.getElementById("cgButton");
             const tllbox = document.getElementById("tlbox");
             
@@ -300,14 +306,14 @@
                 return coordins
                 
             }
-            let buildBoardFunc = (width, height, leftGp, topGp, dom, hexaTemplate, hexaBoard) => {
+            let buildBoardFunc = (startFromHeight, width, height, leftGp, topGp, dom, hexaTemplate, hexaBoard) => {
                 let hexaIndex = 0;
                 let hexaDoms = [];
                 for (let rowHexas of hexaBoard) {
                     console.log(rowHexas);
                     let tmpRow = [];
                     let i = 0;
-                    let startPosition = [(Math.max.apply(null, hexaBoard) - rowHexas) * width / 2, hexaIndex * topGp];
+                    let startPosition = [(Math.max.apply(null, hexaBoard) - rowHexas) * width / 2, startFromHeight + hexaIndex * topGp];
                     console.log(startPosition);
                     while(i < rowHexas) {
                         let hexaSingleDom = hexaTemplate.cloneNode(true);
@@ -351,13 +357,18 @@
                 return hexaDoms;
             }
             
+            let hexaBo = [
+                6, 6
+            ]
+            
             let resetB = () => {
                 chessContainer.innerHTML = "."
                 chessBoard = 
-                    buildBoardFunc(100, 99, 90, 80, chessContainer, hexaTemplate, hexaBoard, chessBoard);
+                    buildBoardFunc(0, 100, 99, 90, 80, chessContainer, hexaTemplate, hexaBoard, chessBoard);
                 console.log(chessBoard);
                 piecesInBoard = [];
                 spawnPiece(pieces, chessBoard);
+                buildBoardFunc(700, 100, 99, 100, 97, chessContainer, hexaTemplate, hexaBo, chessBoard);
             }
             
             setButton()
