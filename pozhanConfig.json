@@ -34,6 +34,12 @@
                 "url": "sx/sgene.html",
                 "description": "两开花，两开花",
                 "icon": ""
+            },
+            {
+                "name": "和首猫猫一起努力",
+                "url": "m/w.html",
+                "description": "不要在电脑前面坐太久哦。",
+                "icon": ""
             }
         ] 
     },
@@ -70,8 +76,8 @@
                 "url": "tt/timetable.html"
             },
             {
-                "name": "哪儿吃？",
-                "url": "dw/a.html"
+                "name": "whmeow",
+                "url": "m/w.html"
             }
         ]
     }
