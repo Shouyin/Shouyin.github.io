@@ -139,7 +139,17 @@ let init = () =>
     stage2_button.addEventListener("click", to_forth_onclick);
     stage5_button.addEventListener("click", first_stage);
     stage3_button.addEventListener("click", to_forth_onclick);
-    catbro.src = catbro_gifs[getRandomInt(catbro_gifs.length)];
+    
+    let random_cat = getRandomInt(catbro_gifs.length);
+    if(random_cat == 2) {
+        give_achievement(ACH_HAV);
+    }
+    if(catbro_gifs[random_cat]) {
+        catbro.src = catbro_gifs[random_cat];
+    } else {
+        catbro.src = catbro_gifs[0];
+    }
+    
 };
 
 let open_stage = (stage) => 
