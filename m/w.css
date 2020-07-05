@@ -112,6 +112,7 @@ button:active {
 
 #whHeader2 {
     width: 80px;
+    height: 55px;
 }
 
 .whMinTextBox {
@@ -275,6 +276,7 @@ button:active {
     justify-content: flex-start;
     background-color: white;
     min-height: 530px;
+    height: 530px;
     width: 490px;
     overflow-x: scroll;
     border-radius: 12px;
@@ -289,13 +291,13 @@ button:active {
 
 h2#whCounter{
     font-size: 180px;
-    margin: 0px;
+    margin: 12px 0px;
     text-align: center;
 }
 
 .whCounterBox {
     box-sizing: border-box;
-    padding: 29px 0px;
+    margin: 29px 0px;
 }
 
 .nav {
